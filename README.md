@@ -1,5 +1,24 @@
-## E-Commerce App
+## Fake E-Commerce App
 
+# This app is a playground to lear TypeScript with React.js/Next.js and Sanity as a Back Office
+
+# Getting Started
+
+First, install all the dependency:
+
+```bash
+npm i
+```
+
+Second run the deployement server: 
+
+```bash
+npm dev
+```
+
+# Todo
+
+- [ ] Remove Npm for Pnpm
 - [ ] Create home page
 - [ ] Add page transitions
 - [ ] Create login/sign-in page
@@ -10,3 +29,4 @@
 - [ ] Add load more button or lazy loading
 - [ ] Add items that customers may like
 - [ ] add more  search filters  
+- [ ] Add tests
