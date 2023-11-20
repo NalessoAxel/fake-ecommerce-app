@@ -4,16 +4,9 @@
 
 # Getting Started
 
-First, install all the dependency:
 
 ```bash
-npm i
-```
-
-Second run the deployement server: 
-
-```bash
-npm dev
+pnpm run dev
 ```
 
 # Todo
