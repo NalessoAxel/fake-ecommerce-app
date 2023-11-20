@@ -1,6 +1,6 @@
 ## Fake E-Commerce App
 
-# This app is a playground to lear TypeScript with React.js/Next.js and Sanity as a Back Office
+# This app is a playground to learn TypeScript with React.js/Next.js and Sanity as a Back Office
 
 # Getting Started
 
@@ -21,5 +21,6 @@ pnpm run dev
 - [ ] Add zoom in image product
 - [ ] Add load more button or lazy loading
 - [ ] Add items that customers may like
-- [ ] add more  search filters  
+- [ ] Add more  search filters
+- [ ] Add internationalization via Sanity
 - [ ] Add tests
