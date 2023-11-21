@@ -1,80 +1,43 @@
 // Based on https://www.sanity.io/plugins/next-auth-sanity
 
-import {  defineType } from "sanity"
+import {  defineType, defineField } from "sanity"
 
-export const userSchema = defineType( {
+export const user = defineType( {
 	name: 'user',
-	title: 'User',
+	title: 'Users',
 	type: 'document',
 	fields: [
-	  {
-		name: 'name',
-		title: 'Name',
-		type: 'string'
-	  },
-	  {
-		name: 'email',
-		title: 'Email',
-		type: 'string'
-	  },
-	  {
-		name: 'image',
-		title: 'Image',
-		type: 'url'
-	  },
-	  {
-		// this is only if you use credentials provider
-		name: 'password',
-		type: 'string',
-		hidden: true
-	  },
-	  {
-		name: 'emailVerified',
-		type: 'datetime',
-		hidden: true,
-	  }
+		defineField({
+			name: 'isAdmin',
+			title: 'Is Admin',
+			type: 'boolean',
+			initialValue: false,
+			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			name: 'name',
+			title: 'Name',
+			type: 'string',
+			readOnly: true,
+			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			name: 'image',
+			title: 'Image',
+			type: 'url'
+		}),
+		defineField({
+			// this is only if you use credentials provider
+			name: 'password',
+			type: 'string',
+			hidden: true
+		}),
 	]
   });
   
-  // account - required
+
   
-  export const account= defineType({ 
-	name: 'account',
-	title: 'Account',
-	type: 'document',
-	fields: [
-	  {
-		name: 'providerType',
-		type: 'string'
-	  },
-	  {
-		name: 'providerId',
-		type: 'string'
-	  },
-	  {
-		name: 'providerAccountId',
-		type: 'string'
-	  },
-	  {
-		name: 'refreshToken',
-		type: 'string'
-	  },
-	  {
-		name: 'accessToken',
-		type: 'string'
-	  },
-	  {
-		name: 'accessTokenExpires',
-		type: 'number'
-	  },
-	  {
-		name: 'user',
-		title: 'User',
-		type: 'reference',
-		to: { type: 'user' }
-	  }
-	]
-  });
+ 
   
   // verification-token - only if you use email provider
   
