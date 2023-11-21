@@ -38,8 +38,7 @@ const toastVariants = cva(
   }
 )
 
-const Toast = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Root>,
+const Toast = React.forwardRef<React.ElementRef<typeof ToastPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => {
@@ -81,7 +80,7 @@ const ToastClose = React.forwardRef<
     toast-close=""
     {...props}
   >
-    <X className="h-4 w-4" />
+    <X className="w-4 h-4" />
   </ToastPrimitives.Close>
 ))
 ToastClose.displayName = ToastPrimitives.Close.displayName
