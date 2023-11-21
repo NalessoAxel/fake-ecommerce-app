@@ -25,3 +25,4 @@ pnpm run dev
 - [ ] Add internationalization via Sanity
 - [ ] Add medusa.js via the sanity plugin
 - [ ] Add tests
+- [ ] Add Error handling (http status, error-message, error-code)
