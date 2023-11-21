@@ -11,7 +11,7 @@ pnpm run dev
 
 # Todo
 
-- [ ] Remove Npm for Pnpm
+- [x] Remove Npm for Pnpm
 - [ ] Create home page
 - [ ] Add page transitions
 - [ ] Create login/sign-in page
@@ -23,4 +23,5 @@ pnpm run dev
 - [ ] Add items that customers may like
 - [ ] Add more  search filters
 - [ ] Add internationalization via Sanity
+- [ ] Add medusa.js via the sanity plugin
 - [ ] Add tests
