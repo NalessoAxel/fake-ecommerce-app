@@ -13,7 +13,7 @@ pnpm run dev
 
 - [x] Remove Npm for Pnpm
 - [ ] Create home page
-- [ ] Add page transitions
+- [ ] Add page transitions with gsap
 - [ ] Create login/sign-in page
 - [ ] Create profile with editable user infos
 - [ ] Add history of order for user
