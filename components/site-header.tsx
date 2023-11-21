@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { UserConnection} from '@/components/user-connection'
 import { SyntheticEvent } from "react"
 
 
@@ -61,6 +62,8 @@ export function SiteHeader() {
 			</Link>
 			
 			<ThemeToggle />
+
+			<UserConnection />
 
 			{process.env.NODE_ENV === 'development' && (
 				<Link href="/studio">
