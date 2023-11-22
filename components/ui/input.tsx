@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 
   export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-	label: string;	
+	label?: string;	
 	name: string;
 	type: string;	
 	className?: string;
@@ -18,8 +18,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 	
 
     return (
-	<div className='flex flex-col items-center justify-center'>
-		<label className="text-black-foreground mb-2 block text-sm font-bold" htmlFor={name}>
+	<div className='flex flex-col justify-start items-stat'>
+		<label className="block mb-2 text-sm font-bold text-black-foreground" htmlFor={name}>
 			{label}
 		</label>
 

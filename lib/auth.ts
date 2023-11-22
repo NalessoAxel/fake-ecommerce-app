@@ -16,7 +16,7 @@ export const authOptions: NextAuthOptions  = {
 		strategy: 'jwt',
 	},
 	adapter: SanityAdapter(client),
-	debug: process.env.NODE_ENV === 'development',
+	debug: process.env.NODE_ENV !== 'production',
 	secret: process.env.NEXTAUTH_SECRET,
 	callbacks: {}
 }
