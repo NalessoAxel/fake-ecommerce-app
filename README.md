@@ -6,12 +6,11 @@
 
 
 ```bash
-pnpm run dev
+yarn dev
 ```
 
 # Todo
 
-- [x] Remove Npm for Pnpm
 - [ ] Create home page
 - [ ] Add page transitions with gsap
 - [ ] Create login/sign-in page
