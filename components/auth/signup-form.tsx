@@ -1,7 +1,8 @@
 "use client"
 
 import { useForm, SubmitHandler } from "react-hook-form"
-import type { FieldValues } from "react-hook-form"
+
+import { zodResolver } from '@hookform/resolvers/zod';
 import classNames from 'classnames'
 import { Input } from '@/components/ui/input'
 import { Button } from "@/components/ui/button"
@@ -13,6 +14,15 @@ import {signIn, useSession} from "next-auth/react"
 import {  toast } from "@/components/ui/use-toast"
 import {z} from 'zod'
 
+const signUpSchema = z.object({
+	name: z.string().min(1, { message: "Name is required" }),
+	email: z.string().email({ message: "Invalid email address" }),
+	password: z.string().min(6, { message: "Password is required and need to be at least 6 characters" }),
+	confirmPassword: z.string().min(6, { message: "Confirm Password is required" }),
+}).refine(data => data.password === data.confirmPassword, {
+	message: "Passwords don't match",
+	path: ["confirmPassword"],
+})
 
 type FormValues = {
 	name: string
@@ -21,12 +31,7 @@ type FormValues = {
 	confirmPassword: string
 }
 
-const signUpSchema = z.object({
-	name: z.string().min(1, { message: "Name is required" }),
-	email: z.string().email({ message: "Invalid email address" }),
-	password: z.string().min(6, { message: "Password is required and need to be at least 6 characters" }),
-	confirmPassword: z.string().min(6, { message: "Confirm Password is required and need to match the password" }),
-})
+type signUpSchema = z.infer<typeof signUpSchema>
 
 export const SignUpForm = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -35,8 +40,6 @@ export const SignUpForm = () => {
 		register,
 		handleSubmit,
 		reset,
-		watch,
-		getValues,
 		formState: { errors },
 		} = useForm<FormValues>({
 			defaultValues: {
@@ -45,6 +48,7 @@ export const SignUpForm = () => {
 			password: "",
 			confirmPassword: "",
 			},
+			resolver: zodResolver(signUpSchema),
 		})
 
 		
@@ -52,7 +56,6 @@ export const SignUpForm = () => {
 
 		const onSubmit: SubmitHandler<FormValues> = async (data) => {
 			setIsLoading(true)
-
 			try {
 				const userData = await signUp({ 
 					name: data.name,
@@ -65,7 +68,6 @@ export const SignUpForm = () => {
 					description: "We've created your account for you.",
 					variant: "destructive",
 				})
-				console.log(userData)
 			} catch (error) {
 				console.error(error)
 			}
