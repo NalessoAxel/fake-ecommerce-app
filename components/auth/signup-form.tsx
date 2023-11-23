@@ -101,7 +101,7 @@ export const SignUpForm = () => {
 
 			<Button type='submit'  className="max-w-xs">
 				{isLoading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />	}
-				{isLoading ? "Loading..." : "Login"}
+				{isLoading ? "Loading..." : "Sign Up"}
 			</Button>
 		</form>
 	)
