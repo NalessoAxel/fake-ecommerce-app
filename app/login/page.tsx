@@ -1,7 +1,7 @@
-import { LoginForm } from "@/components/auth/login-form"
+import { SignUpForm } from "@/components/auth/signup-form"
 
 export default function Page () {
   return (
-	<LoginForm />
+	<SignUpForm />
   )
 }

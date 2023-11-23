@@ -1,5 +1,5 @@
 import * as React from "react"
-import {  UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
+
 import { cn } from "@/lib/utils"
 
 
@@ -10,11 +10,13 @@ import { cn } from "@/lib/utils"
 	name: string;
 	type: string;	
 	className?: string;
+	
   }
   
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, label, name, type = 'text',  ...props  }, ref) => {
+  	({ className, label, name, type = 'text', ...props  }, ref) => {
+
 	
 
     return (
@@ -32,6 +34,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 			ref={ref}
 			{...props}
 		/>
+		 
 	  </div>
     )
   }
